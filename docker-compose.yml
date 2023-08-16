@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  service.main:
+    image: ${DOCKER_REGISTRY-}servicemain
+    build:
+      context: .
+      dockerfile: service.main/Dockerfile
