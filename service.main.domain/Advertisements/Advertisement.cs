@@ -1,4 +1,4 @@
-﻿using service.main.domain.Base;
+﻿using service.main.domain.Common;
 using service.main.domain.Users;
 
 namespace service.main.domain.Advertisements;

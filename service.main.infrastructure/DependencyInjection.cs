@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using service.main.domain.Advertisements;
+using service.main.domain.Users;
 using service.main.infrastructure.Persistence.DbContexts;
+using service.main.infrastructure.Persistence.Repositories;
 
 namespace service.main.infrastructure;
 
@@ -16,5 +19,8 @@ public static class DependencyInjection
         {
             options.UseNpgsql(connectionString);
         });
+
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
     }
 }

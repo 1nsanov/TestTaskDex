@@ -1,4 +1,4 @@
-﻿namespace service.main.domain.Base;
+﻿namespace service.main.domain.Common;
 
 public abstract class BaseEntity
 {

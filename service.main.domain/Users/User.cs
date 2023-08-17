@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using service.main.domain.Advertisements;
-using service.main.domain.Base;
+using service.main.domain.Common;
 
 namespace service.main.domain.Users;
 
