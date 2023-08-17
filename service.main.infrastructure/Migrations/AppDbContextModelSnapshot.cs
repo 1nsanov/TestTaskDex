@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using service.main.infrastructure.Common.DbContexts;
+using service.main.infrastructure.Persistence.DbContexts;
 
 #nullable disable
 
