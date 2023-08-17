@@ -1,5 +1,6 @@
 ﻿using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
+using service.main.application.Common;
 using service.main.infrastructure;
 
 namespace service.main;
@@ -22,6 +23,7 @@ public static class HostingExtensions
 
         builder.Services.AddFluentValidationRulesToSwagger();
 
+        builder.Services.RegisterApplicationLayer();
         builder.Services.RegisterInfrastructureLayer(builder.Configuration);
         
         return builder.Build();
