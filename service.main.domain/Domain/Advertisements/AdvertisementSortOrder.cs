@@ -1,4 +1,4 @@
-﻿namespace service.main.domain.Advertisements;
+﻿namespace service.main.domain.Domain.Advertisements;
 
 public enum AdvertisementSortOrder
 {

@@ -1,5 +1,6 @@
-﻿using service.main.domain.Advertisements;
-using service.main.domain.Common;
+﻿using service.main.domain.Common;
+using service.main.domain.Domain.Advertisements;
+using service.main.domain.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
 
 namespace service.main.infrastructure.Persistence.Repositories;

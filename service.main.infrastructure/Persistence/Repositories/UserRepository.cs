@@ -1,4 +1,5 @@
-﻿using service.main.domain.Users;
+﻿using service.main.domain.Domain.Users;
+using service.main.domain.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
 
 namespace service.main.infrastructure.Persistence.Repositories;

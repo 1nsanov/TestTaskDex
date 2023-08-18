@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using service.main.domain.Advertisements;
-using service.main.domain.Users;
+using service.main.domain.Domain.Advertisements;
+using service.main.domain.Domain.Users;
 
 namespace service.main.infrastructure.Persistence.DbContexts;
 

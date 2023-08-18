@@ -1,6 +1,7 @@
 ﻿using service.main.domain.Common;
+using service.main.domain.Domain.Advertisements;
 
-namespace service.main.domain.Advertisements;
+namespace service.main.domain.Repositories;
 
 public interface IAdvertisementRepository
 {

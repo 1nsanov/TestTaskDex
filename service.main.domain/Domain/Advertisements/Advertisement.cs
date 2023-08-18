@@ -1,7 +1,7 @@
 ﻿using service.main.domain.Common;
-using service.main.domain.Users;
+using service.main.domain.Domain.Users;
 
-namespace service.main.domain.Advertisements;
+namespace service.main.domain.Domain.Advertisements;
 
 public class Advertisement : BaseEntity
 {

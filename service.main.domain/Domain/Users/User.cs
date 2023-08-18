@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using service.main.domain.Advertisements;
 using service.main.domain.Common;
+using service.main.domain.Domain.Advertisements;
 
-namespace service.main.domain.Users;
+namespace service.main.domain.Domain.Users;
 
 public class User : BaseEntity
 {

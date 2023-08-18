@@ -1,4 +1,6 @@
-﻿namespace service.main.domain.Users;
+﻿using service.main.domain.Domain.Users;
+
+namespace service.main.domain.Repositories;
 
 public interface IUserRepository
 {
