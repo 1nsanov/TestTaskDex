@@ -1,6 +1,6 @@
 ﻿using service.main.domain.Domain.Users;
 
-namespace service.main.domain.Repositories;
+namespace service.main.domain.Interfaces.Repositories;
 
 public interface IUserRepository
 {

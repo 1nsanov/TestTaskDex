@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using service.main.domain.Domain.Users;
-using service.main.domain.Repositories;
+using service.main.domain.Interfaces.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
 
 namespace service.main.infrastructure.Persistence.Repositories;

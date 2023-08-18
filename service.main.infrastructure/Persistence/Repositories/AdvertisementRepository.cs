@@ -1,7 +1,9 @@
-﻿using service.main.domain.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using service.main.domain.Common;
 using service.main.domain.Domain.Advertisements;
-using service.main.domain.Repositories;
+using service.main.domain.Interfaces.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
+using service.main.infrastructure.Persistence.Filters;
 
 namespace service.main.infrastructure.Persistence.Repositories;
 
@@ -14,24 +16,49 @@ public class AdvertisementRepository : IAdvertisementRepository
         _dbContext = dbContext;
     }
 
-    public Task<PagedResult<Advertisement>> SearchAndSortAsync(AdvertisementFilterOptions filterOptions, int pageNumber, int pageSize,
+    public async Task<PagedResult<Advertisement>> SearchAndSortAsync(AdvertisementFilterOptions filterOptions, int pageNumber, int pageSize,
         CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var query = new AdvertisementFilter(_dbContext.Advertisements)
+            .TitleFilter(filterOptions.SearchTerm)
+            .RateFilter(filterOptions.MinRate)
+            .ExpireDateFilter(filterOptions.ExpireDate)
+            .Sort(filterOptions.SortOrder);
+
+        var entities = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
+
+        var totalCount = await _dbContext.Advertisements.CountAsync(cancellationToken);
+        
+        return new PagedResult<Advertisement>
+        {
+            Items = entities,
+            TotalCount = totalCount
+        };
     }
 
-    public Task<Advertisement> AddAsync(Advertisement advertisement, CancellationToken cancellationToken)
+    public async Task<Guid> AddAsync(Advertisement advertisement, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        advertisement.CreateDate = DateTime.UtcNow;
+        await _dbContext.Advertisements.AddAsync(advertisement, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+
+        return advertisement.Id;
     }
 
-    public Task<Advertisement> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken)
+    public async Task<Guid> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(advertisement);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+
+        return advertisement.Id;
     }
 
-    public Task DeleteAsync(Advertisement advertisement, CancellationToken cancellationToken)
+    public async Task DeleteAsync(Advertisement advertisement, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _dbContext.Remove(advertisement);
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }

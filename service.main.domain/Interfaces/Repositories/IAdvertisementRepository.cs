@@ -1,7 +1,7 @@
 ﻿using service.main.domain.Common;
 using service.main.domain.Domain.Advertisements;
 
-namespace service.main.domain.Repositories;
+namespace service.main.domain.Interfaces.Repositories;
 
 public interface IAdvertisementRepository
 {
@@ -9,9 +9,9 @@ public interface IAdvertisementRepository
         AdvertisementFilterOptions filterOptions,
         int pageNumber, int pageSize, CancellationToken cancellationToken);
     
-    Task<Advertisement> AddAsync(Advertisement advertisement, CancellationToken cancellationToken);
+    Task<Guid> AddAsync(Advertisement advertisement, CancellationToken cancellationToken);
     
-    Task<Advertisement> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken);
+    Task<Guid> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken);
     
     Task DeleteAsync(Advertisement advertisement, CancellationToken cancellationToken);
 }

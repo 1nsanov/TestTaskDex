@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using service.main.domain.Repositories;
+using service.main.domain.Interfaces.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
 using service.main.infrastructure.Persistence.Repositories;
 
