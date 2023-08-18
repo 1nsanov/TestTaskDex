@@ -1,4 +1,5 @@
-﻿using service.main.domain.Domain.Users;
+﻿using Microsoft.EntityFrameworkCore;
+using service.main.domain.Domain.Users;
 using service.main.domain.Repositories;
 using service.main.infrastructure.Persistence.DbContexts;
 
@@ -13,28 +14,36 @@ public class UserRepository : IUserRepository
         _dbContext = dbContext;
     }
     
-    public Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+    public async Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Users.FindAsync(new object?[] { id }, cancellationToken);
     }
 
-    public Task<List<User>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<List<User>> GetAllAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Users.ToListAsync(cancellationToken);
     }
 
-    public Task<User> AddAsync(User user, CancellationToken cancellationToken)
+    public async Task<Guid> AddAsync(User user, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        user.CreateDate = DateTime.UtcNow;
+        await _dbContext.Users.AddAsync(user, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        
+        return user.Id;
     }
 
-    public Task<User> UpdateAsync(User user, CancellationToken cancellationToken)
+    public async Task<Guid> UpdateAsync(User user, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(user);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        
+        return user.Id;
     }
 
-    public Task DeleteAsync(User user, CancellationToken cancellationToken)
+    public async Task DeleteAsync(User user, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        _dbContext.Users.Remove(user);
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }
