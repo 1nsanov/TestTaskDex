@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Common;
-using TestTaskService.Domain.Domain.Advertisements;
+using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Entities.Core;
 
-namespace TestTaskService.Domain.Domain.Users;
+namespace TestTaskService.Domain.Entities.Users;
 
 public class User : BaseEntity
 {

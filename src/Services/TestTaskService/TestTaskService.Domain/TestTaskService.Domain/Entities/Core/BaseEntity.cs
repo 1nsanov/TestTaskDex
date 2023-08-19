@@ -1,4 +1,4 @@
-﻿namespace TestTaskService.Domain.Common;
+﻿namespace TestTaskService.Domain.Entities.Core;
 
 public abstract class BaseEntity
 {

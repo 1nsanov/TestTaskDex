@@ -1,7 +1,8 @@
-﻿using TestTaskService.Domain.Common;
-using TestTaskService.Domain.Domain.Advertisements;
+﻿using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Filters.Models;
+using TestTaskService.Domain.Repositories.Models;
 
-namespace TestTaskService.Domain.Interfaces.Repositories;
+namespace TestTaskService.Domain.Repositories;
 
 public interface IAdvertisementRepository
 {

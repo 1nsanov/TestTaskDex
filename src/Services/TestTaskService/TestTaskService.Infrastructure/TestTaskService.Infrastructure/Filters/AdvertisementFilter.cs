@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Domain.Advertisements;
-using TestTaskService.Domain.Interfaces.Filters;
+using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Filters;
+using TestTaskService.Domain.Filters.Models;
 
-namespace TestTaskService.Infrastructure.Persistence.Filters;
+namespace TestTaskService.Infrastructure.Filters;
 
 public class AdvertisementFilter : IAdvertisementFilter
 {

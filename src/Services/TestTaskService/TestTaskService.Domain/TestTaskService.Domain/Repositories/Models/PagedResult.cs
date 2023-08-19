@@ -1,4 +1,4 @@
-﻿namespace TestTaskService.Domain.Common;
+﻿namespace TestTaskService.Domain.Repositories.Models;
 
 public class PagedResult<T>
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Domain.Users;
-using TestTaskService.Domain.Interfaces.Repositories;
-using TestTaskService.Infrastructure.Persistence.DbContexts;
+using TestTaskService.Domain.Entities.Users;
+using TestTaskService.Domain.Repositories;
+using TestTaskService.Infrastructure.Data.DbContexts;
 
-namespace TestTaskService.Infrastructure.Persistence.Repositories;
+namespace TestTaskService.Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {

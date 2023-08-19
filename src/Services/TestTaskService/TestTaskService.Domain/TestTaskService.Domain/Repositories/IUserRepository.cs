@@ -1,6 +1,6 @@
-﻿using TestTaskService.Domain.Domain.Users;
+﻿using TestTaskService.Domain.Entities.Users;
 
-namespace TestTaskService.Domain.Interfaces.Repositories;
+namespace TestTaskService.Domain.Repositories;
 
 public interface IUserRepository
 {

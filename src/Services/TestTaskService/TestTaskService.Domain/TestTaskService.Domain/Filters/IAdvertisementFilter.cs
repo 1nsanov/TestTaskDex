@@ -1,6 +1,7 @@
-﻿using TestTaskService.Domain.Domain.Advertisements;
+﻿using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Filters.Models;
 
-namespace TestTaskService.Domain.Interfaces.Filters;
+namespace TestTaskService.Domain.Filters;
 
 public interface IAdvertisementFilter
 {

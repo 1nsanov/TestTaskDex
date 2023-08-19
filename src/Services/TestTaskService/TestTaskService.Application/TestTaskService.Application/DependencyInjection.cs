@@ -2,9 +2,9 @@
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using TestTaskService.Application.Common.Validation;
+using TestTaskService.Application.Validation;
 
-namespace TestTaskService.Application.Common;
+namespace TestTaskService.Application;
 
 public static class DependencyInjection
 {

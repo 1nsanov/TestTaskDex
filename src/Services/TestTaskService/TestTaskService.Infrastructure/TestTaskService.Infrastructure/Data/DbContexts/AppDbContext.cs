@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Domain.Advertisements;
-using TestTaskService.Domain.Domain.Users;
+using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Entities.Users;
 
-namespace TestTaskService.Infrastructure.Persistence.DbContexts;
+namespace TestTaskService.Infrastructure.Data.DbContexts;
 
 public class AppDbContext : DbContext
 {

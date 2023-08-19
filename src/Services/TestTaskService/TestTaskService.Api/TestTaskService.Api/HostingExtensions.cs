@@ -1,7 +1,7 @@
-﻿using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+﻿ using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
-using TestTaskService.Application.Common;
-using TestTaskService.Infrastructure;
+ using TestTaskService.Application;
+ using TestTaskService.Infrastructure;
 
 namespace TestTaskService.Api;
 

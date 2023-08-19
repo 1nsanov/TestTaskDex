@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Common;
-using TestTaskService.Domain.Domain.Advertisements;
-using TestTaskService.Domain.Interfaces.Repositories;
-using TestTaskService.Infrastructure.Persistence.DbContexts;
-using TestTaskService.Infrastructure.Persistence.Filters;
+using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Domain.Entities.Core;
+using TestTaskService.Domain.Filters.Models;
+using TestTaskService.Domain.Repositories;
+using TestTaskService.Domain.Repositories.Models;
+using TestTaskService.Infrastructure.Data.DbContexts;
+using TestTaskService.Infrastructure.Filters;
 
-namespace TestTaskService.Infrastructure.Persistence.Repositories;
+namespace TestTaskService.Infrastructure.Repositories;
 
 public class AdvertisementRepository : IAdvertisementRepository
 {

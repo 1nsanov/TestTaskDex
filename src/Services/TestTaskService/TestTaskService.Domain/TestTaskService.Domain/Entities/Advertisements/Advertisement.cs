@@ -1,7 +1,7 @@
-﻿using TestTaskService.Domain.Common;
-using TestTaskService.Domain.Domain.Users;
+﻿using TestTaskService.Domain.Entities.Core;
+using TestTaskService.Domain.Entities.Users;
 
-namespace TestTaskService.Domain.Domain.Advertisements;
+namespace TestTaskService.Domain.Entities.Advertisements;
 
 public class Advertisement : BaseEntity
 {
