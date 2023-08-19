@@ -6,7 +6,7 @@
     <ProjectGuid>f248b781-3b8e-426c-80f0-e7ba7d905008</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>service.main</DockerServiceName>
+    <DockerServiceName>TestTaskService.Api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  service.main:
-    image: ${DOCKER_REGISTRY-}servicemain
+  TestTaskService.Api:
+    image: ${DOCKER_REGISTRY-}taskdexapi
     build:
       context: .
-      dockerfile: service.main/Dockerfile
+      dockerfile: src/Services/TestTaskService/TestTaskService.Api/TestTaskService.Api/Dockerfile
