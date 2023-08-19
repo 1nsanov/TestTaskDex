@@ -26,7 +26,7 @@ public class AdvertisementConfiguration : IEntityTypeConfiguration<Advertisement
         
         builder
             .Property(a => a.Text)
-            .HasMaxLength(100)
+            .HasMaxLength(500)
             .IsRequired();
         
         builder

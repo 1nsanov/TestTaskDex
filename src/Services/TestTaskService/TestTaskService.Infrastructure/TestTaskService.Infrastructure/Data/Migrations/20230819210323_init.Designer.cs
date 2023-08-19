@@ -12,7 +12,7 @@ using TestTaskService.Infrastructure.Data.DbContexts;
 namespace TestTaskService.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230819210009_init")]
+    [Migration("20230819210323_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -45,8 +45,8 @@ namespace TestTaskService.Infrastructure.Data.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Title")
                         .IsRequired()
