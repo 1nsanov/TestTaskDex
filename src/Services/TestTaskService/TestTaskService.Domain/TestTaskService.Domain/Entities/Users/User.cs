@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Domain.Entities.Advertisements;
+﻿using TestTaskService.Domain.Entities.Advertisements;
 using TestTaskService.Domain.Entities.Core;
 
 namespace TestTaskService.Domain.Entities.Users;
@@ -13,7 +12,6 @@ public class User : BaseEntity
     public List<Advertisement> Advertisements { get; set; } = new();
 }
 
-[Owned]
 public class FullName
 {
     public string Family { get; set; } = null!;

@@ -8,7 +8,7 @@ using TestTaskService.Infrastructure.Data.DbContexts;
 
 #nullable disable
 
-namespace service.main.infrastructure.Migrations
+namespace TestTaskService.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace service.main.infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TestTaskService.Api.domain.Advertisements.Advertisement", b =>
+            modelBuilder.Entity("TestTaskService.Domain.Entities.Advertisements.Advertisement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,23 +42,28 @@ namespace service.main.infrastructure.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Title")
+                        .HasDatabaseName("IX_Advertisement_Title");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Advertisements");
                 });
 
-            modelBuilder.Entity("TestTaskService.Api.domain.Users.User", b =>
+            modelBuilder.Entity("TestTaskService.Domain.Entities.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,16 +77,20 @@ namespace service.main.infrastructure.Migrations
 
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Login")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TestTaskService.Api.domain.Advertisements.Advertisement", b =>
+            modelBuilder.Entity("TestTaskService.Domain.Entities.Advertisements.Advertisement", b =>
                 {
-                    b.HasOne("TestTaskService.Api.domain.Users.User", "User")
+                    b.HasOne("TestTaskService.Domain.Entities.Users.User", "User")
                         .WithMany("Advertisements")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -90,24 +99,27 @@ namespace service.main.infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TestTaskService.Api.domain.Users.User", b =>
+            modelBuilder.Entity("TestTaskService.Domain.Entities.Users.User", b =>
                 {
-                    b.OwnsOne("TestTaskService.Api.domain.Users.FullName", "FullName", b1 =>
+                    b.OwnsOne("TestTaskService.Domain.Entities.Users.FullName", "FullName", b1 =>
                         {
                             b1.Property<Guid>("UserId")
                                 .HasColumnType("uuid");
 
                             b1.Property<string>("Family")
                                 .IsRequired()
-                                .HasColumnType("text");
+                                .HasMaxLength(50)
+                                .HasColumnType("character varying(50)");
 
                             b1.Property<string>("Given")
                                 .IsRequired()
-                                .HasColumnType("text");
+                                .HasMaxLength(50)
+                                .HasColumnType("character varying(50)");
 
                             b1.Property<string>("Middle")
                                 .IsRequired()
-                                .HasColumnType("text");
+                                .HasMaxLength(50)
+                                .HasColumnType("character varying(50)");
 
                             b1.HasKey("UserId");
 
@@ -121,7 +133,7 @@ namespace service.main.infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestTaskService.Api.domain.Users.User", b =>
+            modelBuilder.Entity("TestTaskService.Domain.Entities.Users.User", b =>
                 {
                     b.Navigation("Advertisements");
                 });
