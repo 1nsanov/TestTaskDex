@@ -1,6 +1,6 @@
 ﻿using TestTaskService.Domain.Entities.Advertisements;
-using TestTaskService.Domain.Filters.Models;
-using TestTaskService.Domain.Repositories.Models;
+using TestTaskService.Domain.Filters.ModelDto;
+using TestTaskService.Domain.Repositories.ModelDto;
 
 namespace TestTaskService.Domain.Repositories;
 

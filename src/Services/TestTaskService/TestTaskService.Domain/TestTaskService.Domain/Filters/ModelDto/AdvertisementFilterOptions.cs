@@ -1,4 +1,4 @@
-﻿namespace TestTaskService.Domain.Filters.Models;
+﻿namespace TestTaskService.Domain.Filters.ModelDto;
 
 public class AdvertisementFilterOptions
 {

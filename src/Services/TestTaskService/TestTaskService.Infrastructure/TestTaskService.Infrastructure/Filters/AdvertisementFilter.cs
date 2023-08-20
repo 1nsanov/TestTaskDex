@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestTaskService.Domain.Entities.Advertisements;
 using TestTaskService.Domain.Filters;
-using TestTaskService.Domain.Filters.Models;
+using TestTaskService.Domain.Filters.ModelDto;
 
 namespace TestTaskService.Infrastructure.Filters;
 
