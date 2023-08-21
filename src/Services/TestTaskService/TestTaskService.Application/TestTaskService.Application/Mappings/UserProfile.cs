@@ -1,0 +1,20 @@
+﻿using AutoMapper;
+using TestTaskService.Application.Dtos;
+using TestTaskService.Domain.Entities.Users;
+
+namespace TestTaskService.Application.Mappings;
+
+public class UserProfile : Profile
+{
+    protected UserProfile()
+    {
+        CreateMap<User, UserDto>()
+            .ForMember(dest => dest.FullName, 
+                opt => opt.MapFrom(src => src.FullName))
+            .ReverseMap();
+
+        CreateMap<FullName, FullNameDto>().ReverseMap();
+
+        CreateMap<List<User>, List<UserDto>>();
+    }
+}
