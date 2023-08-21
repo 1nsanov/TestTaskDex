@@ -1,7 +1,8 @@
 ﻿namespace TestTaskService.Application.Dtos;
 
-public record FullNameDto(
-    string Family,
-    string Given,
-    string Middle
-);
+public class FullNameDto
+{
+    public string Family { get; set; }
+    public string Given { get; set; }
+    public string Middle { get; set; }
+}

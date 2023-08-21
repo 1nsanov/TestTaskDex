@@ -1,10 +1,12 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using TestTaskService.Application.Behaviours;
 using TestTaskService.Application.Commands.Users.UserAdd;
 using TestTaskService.Application.Commands.Users.UserUpdate;
+using TestTaskService.Application.Mappings;
 
 namespace TestTaskService.Application;
 
@@ -14,7 +16,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(conf => conf.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection)));
         
-        services.AddAutoMapper(typeof(DependencyInjection));
+        services.AddAutoMapper(typeof(UserProfile).Assembly);
         
         services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection), includeInternalTypes: true);
         services.AddFluentValidationAutoValidation();
@@ -23,9 +25,11 @@ public static class DependencyInjection
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
     }
     
-    private static void AddValidators(this IServiceCollection services)
+    private static IServiceCollection AddValidators(this IServiceCollection services)
     {
         services.AddScoped<IValidator<UserAddCommand>, UserAddCommandValidator>();
         services.AddScoped<IValidator<UserUpdateCommand>, UserUpdateCommandValidator>();
+
+        return services;
     }
 }

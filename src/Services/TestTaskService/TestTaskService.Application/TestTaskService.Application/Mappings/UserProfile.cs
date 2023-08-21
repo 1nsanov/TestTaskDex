@@ -6,15 +6,14 @@ namespace TestTaskService.Application.Mappings;
 
 public class UserProfile : Profile
 {
-    protected UserProfile()
+    public UserProfile()
     {
         CreateMap<User, UserDto>()
             .ForMember(dest => dest.FullName, 
                 opt => opt.MapFrom(src => src.FullName))
             .ReverseMap();
 
-        CreateMap<FullName, FullNameDto>().ReverseMap();
-
-        CreateMap<List<User>, List<UserDto>>();
+        CreateMap<FullName, FullNameDto>()
+            .ReverseMap();
     }
 }

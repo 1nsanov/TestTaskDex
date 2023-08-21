@@ -1,8 +1,9 @@
 ﻿namespace TestTaskService.Application.Dtos;
 
-public record UserDto(
-    Guid Id,
-    string Login,
-    FullNameDto FullName,
-    bool IsAdmin
-);
+public class UserDto
+{
+    public Guid Id { get; set; }
+    public string Login { get; set; }
+    public FullNameDto FullName { get; set; }
+    public bool IsAdmin { get; set; }
+}
