@@ -38,7 +38,11 @@ public class UserRepository : IUserRepository
     
     public async Task<Guid> UpdateAsync(User user, CancellationToken cancellationToken)
     {
-        _dbContext.Update(user);
+        var entity = await GetByIdAsync(user.Id, cancellationToken);
+
+        _dbContext.Entry(entity).CurrentValues.SetValues(user);
+        entity.FullName = user.FullName;
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
         
         return user.Id;

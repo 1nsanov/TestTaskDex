@@ -20,7 +20,8 @@ public class AdvertisementRepository : IAdvertisementRepository
         _dbContext = dbContext;
     }
 
-    public async Task<PagedResult<Advertisement>> SearchAndSortAsync(AdvertisementFilterOptions filterOptions, int pageNumber, int pageSize,
+    public async Task<PagedResult<Advertisement>> SearchAndSortAsync(AdvertisementFilterOptions filterOptions,
+        int pageNumber, int pageSize,
         CancellationToken cancellationToken)
     {
         var query = new AdvertisementFilter(_dbContext.Advertisements)
@@ -35,7 +36,7 @@ public class AdvertisementRepository : IAdvertisementRepository
             .ToListAsync(cancellationToken);
 
         var totalCount = await _dbContext.Advertisements.CountAsync(cancellationToken);
-        
+
         return new PagedResult<Advertisement>
         {
             Items = entities,
@@ -59,7 +60,11 @@ public class AdvertisementRepository : IAdvertisementRepository
 
     public async Task<Guid> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken)
     {
-        _dbContext.Update(advertisement);
+        var entity = await GetByIdAsync(advertisement.Id, cancellationToken);
+        
+        _dbContext.Entry(entity).CurrentValues.SetValues(advertisement);
+        _dbContext.Entry(entity).Property(s => s.UserId).IsModified = false;
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return advertisement.Id;
