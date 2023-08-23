@@ -1,4 +1,5 @@
-﻿ using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+﻿ using System.Text.Json.Serialization;
+ using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
  using TestTaskService.Application;
  using TestTaskService.Infrastructure;
@@ -12,14 +13,13 @@ public static class HostingExtensions
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
         {
+            var enumConverter = new JsonStringEnumConverter(allowIntegerValues: false);
+            options.JsonSerializerOptions.Converters.Add(enumConverter);
             options.JsonSerializerOptions.PropertyNamingPolicy = null;
         });
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(options =>
-        {
-            options.SupportNonNullableReferenceTypes();
-            options.SwaggerDoc("v1", new OpenApiInfo { Title = "TestTaskService.Api", Version = "v1" });
-        });
+
+        builder.Services.AddCustomSwagger();
 
         builder.Services.AddFluentValidationRulesToSwagger();
 
@@ -33,8 +33,7 @@ public static class HostingExtensions
     {
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseCustomSwagger();
         }
 
         app.UseCors(opt =>
