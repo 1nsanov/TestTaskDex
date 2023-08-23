@@ -10,6 +10,7 @@ using TestTaskService.Application.Queries.Users.UserGetById;
 
 namespace TestTaskService.Api.Controllers;
 
+[Route("api/v1/user")]
 public class UserController : BaseController
 {
     public UserController(IMediator mediator) : base(mediator)
@@ -25,7 +26,6 @@ public class UserController : BaseController
     }
     
     [HttpGet("all")]
-    
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
         var users = await _mediator.Send(new UserGetAllQuery(), cancellationToken);
