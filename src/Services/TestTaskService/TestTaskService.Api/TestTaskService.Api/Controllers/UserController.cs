@@ -10,6 +10,9 @@ using TestTaskService.Application.Queries.Users.UserGetById;
 
 namespace TestTaskService.Api.Controllers;
 
+/// <summary>
+/// Контроллер пользователей
+/// </summary>
 [Route("api/v1/user")]
 public class UserController : BaseController
 {
@@ -17,6 +20,12 @@ public class UserController : BaseController
     {
     }
 
+    /// <summary>
+    /// Получение пользователя по id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> GetById([FromQuery] Guid id, CancellationToken cancellationToken)
     {
@@ -25,6 +34,11 @@ public class UserController : BaseController
         return Ok(user);
     }
     
+    /// <summary>
+    /// Получение всех пользователей
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpGet("all")]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
@@ -33,6 +47,12 @@ public class UserController : BaseController
         return Ok(users);
     }
 
+    /// <summary>
+    /// Добавление пользователя
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] UserAddDto request, CancellationToken cancellationToken)
     {
@@ -41,6 +61,12 @@ public class UserController : BaseController
         return Ok(id);
     }
 
+    /// <summary>
+    /// Редактирование пользователя
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] UserUpdateDto request, CancellationToken cancellationToken)
     {
@@ -49,6 +75,12 @@ public class UserController : BaseController
         return Ok(id);
     }
 
+    /// <summary>
+    /// Удаление пользователя
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     [HttpDelete]
     public async Task<IActionResult> Delete([FromQuery] Guid id, CancellationToken cancellationToken)
     {

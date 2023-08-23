@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using TestTaskService.Application.Exceptions;
 using TestTaskService.Domain.Repositories;
 

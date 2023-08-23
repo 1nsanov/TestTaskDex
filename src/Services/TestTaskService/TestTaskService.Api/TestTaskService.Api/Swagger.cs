@@ -13,6 +13,9 @@ internal static class Swagger
     {
         services.AddSwaggerGen(options =>
         {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            options.IncludeXmlComments(xmlPath);
             options.SupportNonNullableReferenceTypes();
             options.CustomSchemaIds(type => type.FullName?.Replace("+", "_"));
             options.SwaggerDoc("v1", new OpenApiInfo { Title = AppName, Version = "v1" });

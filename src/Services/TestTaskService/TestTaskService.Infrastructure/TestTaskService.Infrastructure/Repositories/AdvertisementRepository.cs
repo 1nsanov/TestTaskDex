@@ -8,6 +8,9 @@ using TestTaskService.Infrastructure.Filters;
 
 namespace TestTaskService.Infrastructure.Repositories;
 
+/// <summary>
+/// Репозиторий объявлений
+/// </summary>
 public class AdvertisementRepository : IAdvertisementRepository
 {
     private readonly AppDbContext _dbContext;

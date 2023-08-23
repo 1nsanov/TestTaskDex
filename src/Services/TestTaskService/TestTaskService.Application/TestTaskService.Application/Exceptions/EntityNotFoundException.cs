@@ -1,5 +1,8 @@
 ﻿namespace TestTaskService.Application.Exceptions;
 
+/// <summary>
+/// Ошибка не найденой сущности в бд
+/// </summary>
 public class EntityNotFoundException : Exception
 {
     public EntityNotFoundException(Guid id)
