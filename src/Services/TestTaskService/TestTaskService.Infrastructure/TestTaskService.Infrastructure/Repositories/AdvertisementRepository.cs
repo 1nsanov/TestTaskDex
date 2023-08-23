@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestTaskService.Domain.Entities.Advertisements;
-using TestTaskService.Domain.Entities.Core;
 using TestTaskService.Domain.Filters.ModelDto;
 using TestTaskService.Domain.Repositories;
 using TestTaskService.Domain.Repositories.ModelDto;
@@ -39,6 +38,11 @@ public class AdvertisementRepository : IAdvertisementRepository
             Items = entities,
             TotalCount = totalCount
         };
+    }
+
+    public async Task<Advertisement?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+    {
+        return await _dbContext.Advertisements.FindAsync(new object?[] { id }, cancellationToken);
     }
 
     public async Task<Guid> AddAsync(Advertisement advertisement, CancellationToken cancellationToken)

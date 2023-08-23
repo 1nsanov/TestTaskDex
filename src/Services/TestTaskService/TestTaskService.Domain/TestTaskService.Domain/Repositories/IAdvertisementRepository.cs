@@ -9,7 +9,9 @@ public interface IAdvertisementRepository
     Task<PagedResult<Advertisement>> SearchAndSortAsync(
         AdvertisementFilterOptions filterOptions,
         int pageNumber, int pageSize, CancellationToken cancellationToken);
-    
+
+    Task<Advertisement?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+
     Task<Guid> AddAsync(Advertisement advertisement, CancellationToken cancellationToken);
     
     Task<Guid> UpdateAsync(Advertisement advertisement, CancellationToken cancellationToken);

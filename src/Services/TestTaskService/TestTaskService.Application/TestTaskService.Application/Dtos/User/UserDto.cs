@@ -1,4 +1,4 @@
-﻿namespace TestTaskService.Application.Dtos;
+﻿namespace TestTaskService.Application.Dtos.User;
 
 public class UserDto
 {

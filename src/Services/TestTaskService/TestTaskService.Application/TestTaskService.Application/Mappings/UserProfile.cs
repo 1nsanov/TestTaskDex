@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TestTaskService.Application.Dtos;
+using TestTaskService.Application.Dtos.User;
 using TestTaskService.Domain.Entities.Users;
 
 namespace TestTaskService.Application.Mappings;

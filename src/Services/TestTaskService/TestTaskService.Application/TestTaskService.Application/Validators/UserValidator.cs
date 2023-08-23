@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using TestTaskService.Application.Dtos;
+using TestTaskService.Application.Dtos.User;
 
 namespace TestTaskService.Application.Validators;
 

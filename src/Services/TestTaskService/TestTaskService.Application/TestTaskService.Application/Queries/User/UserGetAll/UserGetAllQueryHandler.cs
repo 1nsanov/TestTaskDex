@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using TestTaskService.Application.Dtos;
+using TestTaskService.Application.Dtos.User;
 using TestTaskService.Domain.Repositories;
 
 namespace TestTaskService.Application.Queries.User.UserGetAll;

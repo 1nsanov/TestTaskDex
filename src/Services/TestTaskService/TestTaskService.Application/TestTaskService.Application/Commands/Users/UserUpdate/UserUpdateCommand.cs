@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using TestTaskService.Application.Dtos;
+using TestTaskService.Application.Dtos.User;
 
 namespace TestTaskService.Application.Commands.Users.UserUpdate;
 
