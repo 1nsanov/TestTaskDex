@@ -11,7 +11,7 @@ public class AdvertisementAddCommandValidator : AbstractValidator<AdvertisementA
             .SetValidator(new AdvertisementValidator());
     }
 
-    private class AdvertisementValidator : AbstractValidator<AdvertisementPostDto>
+    private class AdvertisementValidator : AbstractValidator<AdvertisementAddDto>
     {
         public AdvertisementValidator()
         {

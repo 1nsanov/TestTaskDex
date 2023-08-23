@@ -5,7 +5,7 @@ using TestTaskService.Domain.Repositories;
 
 namespace TestTaskService.Application.Queries.Users.UserGetAll;
 
-public class UserGetAllQueryHandler : IRequestHandler<UserGetAllQuery, List<UserDto>>
+public class UserGetAllQueryHandler : IRequestHandler<UserGetAllQuery, List<UserListDto>>
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
@@ -16,10 +16,10 @@ public class UserGetAllQueryHandler : IRequestHandler<UserGetAllQuery, List<User
         _mapper = mapper;
     }
 
-    public async Task<List<UserDto>> Handle(UserGetAllQuery request, CancellationToken cancellationToken)
+    public async Task<List<UserListDto>> Handle(UserGetAllQuery request, CancellationToken cancellationToken)
     {
         var entities = await _userRepository.GetAllAsync(cancellationToken);
 
-        return _mapper.Map<List<UserDto>>(entities);
+        return _mapper.Map<List<UserListDto>>(entities);
     }
 }

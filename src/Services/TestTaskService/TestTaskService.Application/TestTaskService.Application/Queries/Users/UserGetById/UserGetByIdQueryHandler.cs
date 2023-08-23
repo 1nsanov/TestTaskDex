@@ -6,7 +6,7 @@ using TestTaskService.Domain.Repositories;
 
 namespace TestTaskService.Application.Queries.Users.UserGetById;
 
-public class UserGetByIdQueryHandler : IRequestHandler<UserGetByIdQuery, UserDto>
+public class UserGetByIdQueryHandler : IRequestHandler<UserGetByIdQuery, UserGetDto>
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
@@ -17,11 +17,11 @@ public class UserGetByIdQueryHandler : IRequestHandler<UserGetByIdQuery, UserDto
         _mapper = mapper;
     }
 
-    public async Task<UserDto> Handle(UserGetByIdQuery request, CancellationToken cancellationToken)
+    public async Task<UserGetDto> Handle(UserGetByIdQuery request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByIdAsync(request.id, cancellationToken)
             ?? throw new EntityNotFoundException(request.id);
 
-        return _mapper.Map<UserDto>(user);
+        return _mapper.Map<UserGetDto>(user);
     }
 }

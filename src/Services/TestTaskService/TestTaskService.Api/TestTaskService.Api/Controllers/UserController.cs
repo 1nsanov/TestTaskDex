@@ -34,7 +34,7 @@ public class UserController : BaseController
     }
 
     [HttpPost]
-    public async Task<IActionResult> Add([FromBody] UserDto request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Add([FromBody] UserAddDto request, CancellationToken cancellationToken)
     {
         var id = await _mediator.Send(new UserAddCommand(request), cancellationToken);
 
@@ -42,7 +42,7 @@ public class UserController : BaseController
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] UserDto request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Update([FromBody] UserUpdateDto request, CancellationToken cancellationToken)
     {
         var id = await _mediator.Send(new UserUpdateCommand(request), cancellationToken);
 

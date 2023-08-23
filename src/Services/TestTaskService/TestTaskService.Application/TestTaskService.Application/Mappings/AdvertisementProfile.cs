@@ -10,9 +10,9 @@ public class AdvertisementProfile : Profile
     {
         CreateMap<Advertisement, AdvertisementGetDto>();
 
-        CreateMap<AdvertisementPostDto, Advertisement>();
+        CreateMap<AdvertisementAddDto, Advertisement>();
         
-        CreateMap<AdvertisementPutDto, Advertisement>();
+        CreateMap<AdvertisementUpdateDto, Advertisement>();
 
         CreateMap<Advertisement, AdvertisementListDto>();
     }
