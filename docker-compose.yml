@@ -23,7 +23,8 @@ services:
   database.migrator:
     image: ${DOCKER_REGISTRY-}database.migrator
     depends_on:
-      - "database"
+      database:
+        condition: service_started    
     build:
       context: .
       dockerfile: tools/TestTaskDex.Migrator/Dockerfile
