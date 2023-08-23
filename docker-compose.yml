@@ -20,6 +20,18 @@ services:
     networks:
       - dev
 
+  database.migrator:
+    image: ${DOCKER_REGISTRY-}database.migrator
+    depends_on:
+      - "database"
+    build:
+      context: .
+      dockerfile: tools/TestTaskDex.Migrator/Dockerfile
+    environment:
+      - DefaultConnection=Host=database;Database=postgres;Username=postgres;Password=postgres;Port=5432;Pooling=true;
+    networks:
+      - dev
+
   database:
     image: postgres
     restart: always

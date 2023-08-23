@@ -9,11 +9,11 @@ using TestTaskService.Infrastructure.Data.DbContexts;
 
 #nullable disable
 
-namespace TestTaskService.Infrastructure.Data.Migrations
+namespace TestTaskDex.Migrator.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230819210323_init")]
-    partial class init
+    [Migration("20230823114929_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

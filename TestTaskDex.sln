@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskService.Domain", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskService.Infrastructure", "src\Services\TestTaskService\TestTaskService.Infrastructure\TestTaskService.Infrastructure\TestTaskService.Infrastructure.csproj", "{00BE8A5F-650E-4427-BD2F-669E6149CB9E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D12AEEF4-0A9D-429A-993E-131D51544F9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskDex.Migrator", "tools\TestTaskDex.Migrator\TestTaskDex.Migrator.csproj", "{BAE2582B-ACF7-453A-BC75-9E018EC26AF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{00BE8A5F-650E-4427-BD2F-669E6149CB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00BE8A5F-650E-4427-BD2F-669E6149CB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00BE8A5F-650E-4427-BD2F-669E6149CB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE2582B-ACF7-453A-BC75-9E018EC26AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE2582B-ACF7-453A-BC75-9E018EC26AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE2582B-ACF7-453A-BC75-9E018EC26AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE2582B-ACF7-453A-BC75-9E018EC26AF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +79,6 @@ Global
 		{5E494B70-D568-4210-B865-E28DCAD039E5} = {87D8951B-2160-4B2B-A76F-D2261DE25F4F}
 		{23C7FB96-B2B4-4B5A-8246-C80465829F8B} = {B7B8CAE3-12D8-41AD-8224-CD78F35A5653}
 		{00BE8A5F-650E-4427-BD2F-669E6149CB9E} = {048573B2-5247-439D-BD28-B70C3530D7F6}
+		{BAE2582B-ACF7-453A-BC75-9E018EC26AF9} = {D12AEEF4-0A9D-429A-993E-131D51544F9A}
 	EndGlobalSection
 EndGlobal

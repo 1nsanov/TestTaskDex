@@ -8,7 +8,7 @@ using TestTaskService.Infrastructure.Data.DbContexts;
 
 #nullable disable
 
-namespace TestTaskService.Infrastructure.Data.Migrations
+namespace TestTaskDex.Migrator.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
