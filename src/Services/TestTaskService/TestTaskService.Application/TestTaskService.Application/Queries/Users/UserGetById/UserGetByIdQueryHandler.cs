@@ -4,7 +4,7 @@ using TestTaskService.Application.Dtos.User;
 using TestTaskService.Application.Exceptions;
 using TestTaskService.Domain.Repositories;
 
-namespace TestTaskService.Application.Queries.User.UserGetById;
+namespace TestTaskService.Application.Queries.Users.UserGetById;
 
 public class UserGetByIdQueryHandler : IRequestHandler<UserGetByIdQuery, UserDto>
 {

@@ -3,6 +3,8 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using TestTaskService.Application.Behaviours;
+using TestTaskService.Application.Commands.Advertisements.AdvertisementAdd;
+using TestTaskService.Application.Commands.Advertisements.AdvertisementUpdate;
 using TestTaskService.Application.Commands.Users.UserAdd;
 using TestTaskService.Application.Commands.Users.UserUpdate;
 using TestTaskService.Application.Mappings;
@@ -15,7 +17,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(conf => conf.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection)));
         
-        services.AddAutoMapper(typeof(UserProfile).Assembly);
+        services.AddAutoMapper(typeof(UserProfile).Assembly, typeof(AdvertisementProfile).Assembly);
         
         services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection), includeInternalTypes: true);
         services.AddFluentValidationAutoValidation();
@@ -24,11 +26,11 @@ public static class DependencyInjection
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
     }
     
-    private static IServiceCollection AddValidators(this IServiceCollection services)
+    private static void AddValidators(this IServiceCollection services)
     {
         services.AddScoped<IValidator<UserAddCommand>, UserAddCommandValidator>();
         services.AddScoped<IValidator<UserUpdateCommand>, UserUpdateCommandValidator>();
-
-        return services;
+        services.AddScoped<IValidator<AdvertisementAddCommand>, AdvertisementAddCommandValidator>();
+        services.AddScoped<IValidator<AdvertisementUpdateCommand>, AdvertisementUpdateCommandValidator>();
     }
 }

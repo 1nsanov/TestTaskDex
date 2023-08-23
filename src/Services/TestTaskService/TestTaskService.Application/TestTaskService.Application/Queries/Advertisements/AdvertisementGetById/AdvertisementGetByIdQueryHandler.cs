@@ -4,9 +4,9 @@ using TestTaskService.Application.Dtos.Advertisement;
 using TestTaskService.Application.Exceptions;
 using TestTaskService.Domain.Repositories;
 
-namespace TestTaskService.Application.Queries.Advertisement.AdvertisementGetById;
+namespace TestTaskService.Application.Queries.Advertisements.AdvertisementGetById;
 
-public class AdvertisementGetByIdQueryHandler : IRequestHandler<AdvertisementGetByIdQuery, AdvertisementDto>
+public class AdvertisementGetByIdQueryHandler : IRequestHandler<AdvertisementGetByIdQuery, AdvertisementGetDto>
 {
     private readonly IAdvertisementRepository _advertisementRepository;
     private readonly IMapper _mapper;
@@ -17,11 +17,11 @@ public class AdvertisementGetByIdQueryHandler : IRequestHandler<AdvertisementGet
         _mapper = mapper;
     }
 
-    public async Task<AdvertisementDto> Handle(AdvertisementGetByIdQuery request, CancellationToken cancellationToken)
+    public async Task<AdvertisementGetDto> Handle(AdvertisementGetByIdQuery request, CancellationToken cancellationToken)
     {
         var user = await _advertisementRepository.GetByIdAsync(request.id, cancellationToken)
                    ?? throw new EntityNotFoundException(request.id);
 
-        return _mapper.Map<AdvertisementDto>(user);
+        return _mapper.Map<AdvertisementGetDto>(user);
     }
 }

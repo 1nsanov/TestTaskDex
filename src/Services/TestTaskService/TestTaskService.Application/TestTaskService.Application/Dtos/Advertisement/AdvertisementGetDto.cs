@@ -1,6 +1,6 @@
 ﻿namespace TestTaskService.Application.Dtos.Advertisement;
 
-public class AdvertisementDto
+public class AdvertisementGetDto
 {
     public Guid Id { get; set; }
     public int Number { get; set; }

@@ -3,7 +3,7 @@ using MediatR;
 using TestTaskService.Application.Dtos.User;
 using TestTaskService.Domain.Repositories;
 
-namespace TestTaskService.Application.Queries.User.UserGetAll;
+namespace TestTaskService.Application.Queries.Users.UserGetAll;
 
 public class UserGetAllQueryHandler : IRequestHandler<UserGetAllQuery, List<UserDto>>
 {

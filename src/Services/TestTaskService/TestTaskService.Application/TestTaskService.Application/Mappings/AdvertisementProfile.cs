@@ -8,9 +8,12 @@ public class AdvertisementProfile : Profile
 {
     public AdvertisementProfile()
     {
-        CreateMap<Advertisement, AdvertisementDto>()
-            .ReverseMap();
+        CreateMap<Advertisement, AdvertisementGetDto>();
 
-        CreateMap<Advertisement, AdvertisementDto>();
+        CreateMap<AdvertisementPostDto, Advertisement>();
+        
+        CreateMap<AdvertisementPutDto, Advertisement>();
+
+        CreateMap<Advertisement, AdvertisementListDto>();
     }
 }

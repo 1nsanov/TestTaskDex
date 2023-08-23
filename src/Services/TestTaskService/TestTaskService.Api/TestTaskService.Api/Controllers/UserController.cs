@@ -5,8 +5,8 @@ using TestTaskService.Application.Commands.Users.UserDelete;
 using TestTaskService.Application.Commands.Users.UserUpdate;
 using TestTaskService.Application.Dtos;
 using TestTaskService.Application.Dtos.User;
-using TestTaskService.Application.Queries.User.UserGetAll;
-using TestTaskService.Application.Queries.User.UserGetById;
+using TestTaskService.Application.Queries.Users.UserGetAll;
+using TestTaskService.Application.Queries.Users.UserGetById;
 
 namespace TestTaskService.Api.Controllers;
 

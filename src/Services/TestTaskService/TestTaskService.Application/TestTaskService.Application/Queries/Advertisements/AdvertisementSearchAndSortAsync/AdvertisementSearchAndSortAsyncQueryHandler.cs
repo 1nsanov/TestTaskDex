@@ -3,7 +3,7 @@ using MediatR;
 using TestTaskService.Application.Dtos.Advertisement;
 using TestTaskService.Domain.Repositories;
 
-namespace TestTaskService.Application.Queries.Advertisement.AdvertisementSearchAndSortAsync;
+namespace TestTaskService.Application.Queries.Advertisements.AdvertisementSearchAndSortAsync;
 
 public class AdvertisementSearchAndSortAsyncQueryHandler : IRequestHandler<AdvertisementSearchAndSortAsyncQuery, List<AdvertisementListDto>>
 {
