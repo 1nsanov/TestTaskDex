@@ -45,9 +45,3 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     networks:
       - dev
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
