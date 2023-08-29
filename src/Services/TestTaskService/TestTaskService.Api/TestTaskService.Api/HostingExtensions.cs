@@ -1,8 +1,8 @@
-﻿ using System.Text.Json.Serialization;
- using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
-using Microsoft.OpenApi.Models;
- using TestTaskService.Application;
- using TestTaskService.Infrastructure;
+﻿using System.Text.Json.Serialization;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+using TestTaskService.Api.Middlewares;
+using TestTaskService.Application;
+using TestTaskService.Infrastructure;
 
 namespace TestTaskService.Api;
 
@@ -42,6 +42,8 @@ public static class HostingExtensions
             opt.AllowAnyOrigin();
             opt.AllowAnyMethod();
         });
+
+        app.UseMiddleware<GlobalErrorHandlingMiddleware>();
 
         app.UseAuthorization();
 
