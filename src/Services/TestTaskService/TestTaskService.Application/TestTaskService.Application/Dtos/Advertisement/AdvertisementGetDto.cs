@@ -8,6 +8,7 @@ public class AdvertisementGetDto
     public string Text { get; set; } = null!;
     public int Rate { get; set; }
     public DateTime ExpireDate { get; set; }
+    public string? ImageUrl { get; set; }
     public Guid UserId { get; set; }
     public DateTime CreateDate { get; set; }
 }

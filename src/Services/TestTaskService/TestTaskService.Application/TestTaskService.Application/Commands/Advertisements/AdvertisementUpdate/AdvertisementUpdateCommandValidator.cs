@@ -29,6 +29,11 @@ public class AdvertisementUpdateCommandValidator : AbstractValidator<Advertiseme
 
             RuleFor(a => a.ExpireDate)
                 .GreaterThanOrEqualTo(DateTime.UtcNow).WithMessage("Date cannot less date now");
+            
+            RuleFor(a => a.ImageUrl)
+                .NotEmpty().WithMessage("ImageUrl cannot be empty")
+                .Matches(@"^https?://[^\s/$.?#].[^\s]*$").WithMessage("ImageUrl must be a valid URL")
+                .Unless(a => a.ImageUrl is null);
         }
     }
 }

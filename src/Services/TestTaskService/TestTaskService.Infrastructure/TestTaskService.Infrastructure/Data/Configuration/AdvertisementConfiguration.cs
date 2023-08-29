@@ -14,6 +14,10 @@ public class AdvertisementConfiguration : IEntityTypeConfiguration<Advertisement
         builder
             .Property(a => a.Number)
             .IsRequired();
+
+        builder
+            .HasIndex(a => a.Number)
+            .IsUnique();
         
         builder
             .Property(a => a.Title)
@@ -37,6 +41,10 @@ public class AdvertisementConfiguration : IEntityTypeConfiguration<Advertisement
             .Property(a => a.ExpireDate)
             .IsRequired();
 
+        builder
+            .Property(a => a.ImageUrl)
+            .HasMaxLength(2000);
+         
         builder
             .HasOne(a => a.User)
             .WithMany(u => u.Advertisements)

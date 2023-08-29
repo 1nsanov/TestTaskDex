@@ -34,6 +34,10 @@ namespace TestTaskDex.Migrator.Migrations
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
+
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
@@ -54,6 +58,9 @@ namespace TestTaskDex.Migrator.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Number")
+                        .IsUnique();
 
                     b.HasIndex("Title")
                         .HasDatabaseName("IX_Advertisement_Title");

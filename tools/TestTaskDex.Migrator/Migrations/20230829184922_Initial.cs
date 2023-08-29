@@ -38,6 +38,7 @@ namespace TestTaskDex.Migrator.Migrations
                     Text = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     Rate = table.Column<int>(type: "integer", nullable: false),
                     ExpireDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ImageUrl = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: true),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -56,6 +57,12 @@ namespace TestTaskDex.Migrator.Migrations
                 name: "IX_Advertisement_Title",
                 table: "Advertisements",
                 column: "Title");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Advertisements_Number",
+                table: "Advertisements",
+                column: "Number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Advertisements_UserId",
