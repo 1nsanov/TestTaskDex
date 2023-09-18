@@ -18,8 +18,4 @@
       <ProjectReference Include="..\..\TestTaskService.Domain\TestTaskService.Domain\TestTaskService.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Interfaces" />
-    </ItemGroup>
-
 </Project>

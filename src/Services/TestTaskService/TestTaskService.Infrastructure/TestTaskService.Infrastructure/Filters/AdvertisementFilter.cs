@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TestTaskService.Application.Dtos.Advertisement.Filters;
+﻿using TestTaskService.Application.Dtos.Advertisement.Filters;
 using TestTaskService.Application.Interfaces.Filters;
+using TestTaskService.Application.Interfaces.Specification;
 using TestTaskService.Domain.Entities.Advertisements;
+using TestTaskService.Infrastructure.Extensions;
 
 namespace TestTaskService.Infrastructure.Filters;
 
@@ -14,35 +15,23 @@ public class AdvertisementFilter : IAdvertisementFilter
         _advertisements = advertisements;
     }
     
-    public IAdvertisementFilter TitleFilter(string? title)
+    public IAdvertisementFilter TitleFilter(ISpecification<Advertisement> titleSpecification)
     {
-        _advertisements = title switch
-        {
-            null => _advertisements,
-            _ => _advertisements.Where(a => EF.Functions.ILike(a.Title, $"%{title}%"))
-        };
+        _advertisements = _advertisements.ApplySpecify(titleSpecification);
         
         return this;
     }
 
-    public IAdvertisementFilter RateFilter(int? minRate)
+    public IAdvertisementFilter RateFilter(ISpecification<Advertisement> rateSpecification)
     {
-        _advertisements = minRate switch
-        {
-            null => _advertisements,
-            _ => _advertisements.Where(a => a.Rate >= minRate)
-        };
+        _advertisements = _advertisements.ApplySpecify(rateSpecification);
 
         return this;
     }
 
-    public IAdvertisementFilter ExpireDateFilter(DateTime? expireDate)
+    public IAdvertisementFilter ExpireDateFilter(ISpecification<Advertisement> expireDateSpecification)
     {
-        _advertisements = expireDate switch
-        {
-            null => _advertisements,
-            _ => _advertisements.Where(a => a.ExpireDate >= expireDate)
-        };
+        _advertisements = _advertisements.ApplySpecify(expireDateSpecification);
 
         return this;
     }

@@ -1,4 +1,5 @@
 ﻿using TestTaskService.Application.Dtos.Advertisement.Filters;
+using TestTaskService.Application.Interfaces.Specification;
 using TestTaskService.Domain.Entities.Advertisements;
 
 namespace TestTaskService.Application.Interfaces.Filters;
@@ -11,23 +12,23 @@ public interface IAdvertisementFilter
     /// <summary>
     /// Фильтр по заголовку
     /// </summary>
-    /// <param name="title"></param>
+    /// <param name="titleSpecification"></param>
     /// <returns></returns>
-    public IAdvertisementFilter TitleFilter(string? title);
-    
+    public IAdvertisementFilter TitleFilter(ISpecification<Advertisement> titleSpecification);
+
     /// <summary>
     /// Фильтр по рейтингу
     /// </summary>
-    /// <param name="minRate"></param>
+    /// <param name="rateSpecification"></param>
     /// <returns></returns>
-    public IAdvertisementFilter RateFilter(int? minRate);
+    public IAdvertisementFilter RateFilter(ISpecification<Advertisement> rateSpecification);
     
     /// <summary>
     /// Фильтр по дате истечения
     /// </summary>
-    /// <param name="expireDate"></param>
+    /// <param name="expireDateSpecification"></param>
     /// <returns></returns>
-    public IAdvertisementFilter ExpireDateFilter(DateTime? expireDate);
+    public IAdvertisementFilter ExpireDateFilter(ISpecification<Advertisement> expireDateSpecification);
 
     /// <summary>
     /// Сортировка

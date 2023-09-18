@@ -4,7 +4,9 @@ using TestTaskService.Application.Dtos.Common;
 using TestTaskService.Application.Interfaces.Repositories;
 using TestTaskService.Domain.Entities.Advertisements;
 using TestTaskService.Infrastructure.Data.DbContexts;
+using TestTaskService.Infrastructure.Extensions;
 using TestTaskService.Infrastructure.Filters;
+using TestTaskService.Infrastructure.Specifications;
 
 namespace TestTaskService.Infrastructure.Repositories;
 
@@ -24,18 +26,29 @@ public class AdvertisementRepository : IAdvertisementRepository
         int pageNumber, int pageSize,
         CancellationToken cancellationToken)
     {
-        var query = new AdvertisementFilter(_dbContext.Advertisements)
-            .TitleFilter(filterOptions.SearchTerm)
-            .RateFilter(filterOptions.MinRate)
-            .ExpireDateFilter(filterOptions.ExpireDate)
-            .Sort(filterOptions.SortOrder);
+        var titleSpec = new TitleSpecification(filterOptions.SearchTerm);
+        var rateSpec = new RateSpecification(filterOptions.MinRate);
+        var expireDateSpec = new ExpireDateSpecification(filterOptions.ExpireDate);
+        var sortSpec = new SortSpecification(filterOptions.SortOrder);
+        
+        // var query = new AdvertisementFilter(_dbContext.Advertisements)
+        //     .TitleFilter(titleSpec)
+        //     .RateFilter(rateSpec)
+        //     .ExpireDateFilter(expireDateSpec)
+        //     .Sort(filterOptions.SortOrder);
 
+        var query = _dbContext.Advertisements
+            .ApplySpecify(titleSpec)
+            .ApplySpecify(rateSpec)
+            .ApplySpecify(expireDateSpec)
+            .ApplySpecify(sortSpec);
+
+        var totalCount = await query.CountAsync(cancellationToken);
+        
         var entities = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync(cancellationToken);
-
-        var totalCount = await _dbContext.Advertisements.CountAsync(cancellationToken);
 
         return new PagedResult<Advertisement>
         {
