@@ -32,7 +32,7 @@ public class AdvertisementUpdateCommandValidator : AbstractValidator<Advertiseme
             
             RuleFor(a => a.ImageUrl)
                 .NotEmpty().WithMessage("ImageUrl cannot be empty")
-                .Matches(@"^https?://[^\s/$.?#].[^\s]*$").WithMessage("ImageUrl must be a valid URL")
+                .Matches(@"^https://firebasestorage\.googleapis\.com/v0/b/[^/]+/o/[^/]+(\?.*)?$").WithMessage("ImageUrl must be a valid Firebase Storage URL")
                 .Unless(a => a.ImageUrl is null);
         }
     }
