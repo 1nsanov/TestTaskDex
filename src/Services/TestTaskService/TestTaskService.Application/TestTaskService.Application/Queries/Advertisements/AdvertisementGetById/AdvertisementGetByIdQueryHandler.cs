@@ -2,7 +2,7 @@
 using MediatR;
 using TestTaskService.Application.Dtos.Advertisement;
 using TestTaskService.Application.Exceptions;
-using TestTaskService.Domain.Repositories;
+using TestTaskService.Application.Interfaces.Repositories;
 
 namespace TestTaskService.Application.Queries.Advertisements.AdvertisementGetById;
 

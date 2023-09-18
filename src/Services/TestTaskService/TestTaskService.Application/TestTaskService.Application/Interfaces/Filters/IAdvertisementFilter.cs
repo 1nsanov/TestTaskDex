@@ -1,7 +1,7 @@
-﻿using TestTaskService.Domain.Entities.Advertisements;
-using TestTaskService.Domain.Filters.ModelDto;
+﻿using TestTaskService.Application.Dtos.Advertisement.Filters;
+using TestTaskService.Domain.Entities.Advertisements;
 
-namespace TestTaskService.Domain.Filters;
+namespace TestTaskService.Application.Interfaces.Filters;
 
 /// <summary>
 /// Фильтрация объявлений

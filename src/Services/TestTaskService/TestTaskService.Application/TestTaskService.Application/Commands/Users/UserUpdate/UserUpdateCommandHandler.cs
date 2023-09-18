@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using TestTaskService.Application.Interfaces.Repositories;
 using TestTaskService.Domain.Entities.Users;
-using TestTaskService.Domain.Repositories;
 
 namespace TestTaskService.Application.Commands.Users.UserUpdate;
 

@@ -1,8 +1,8 @@
-﻿using TestTaskService.Domain.Entities.Advertisements;
-using TestTaskService.Domain.Filters.ModelDto;
-using TestTaskService.Domain.Repositories.ModelDto;
+﻿using TestTaskService.Application.Dtos.Advertisement.Filters;
+using TestTaskService.Application.Dtos.Common;
+using TestTaskService.Domain.Entities.Advertisements;
 
-namespace TestTaskService.Domain.Repositories;
+namespace TestTaskService.Application.Interfaces.Repositories;
 
 /// <summary>
 /// Репозиторий объявлений

@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\TestTaskService.Application\TestTaskService.Application\TestTaskService.Application.csproj" />
       <ProjectReference Include="..\..\TestTaskService.Domain\TestTaskService.Domain\TestTaskService.Domain.csproj" />
     </ItemGroup>
 

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using TestTaskService.Application.Dtos.Advertisement;
-using TestTaskService.Domain.Filters.ModelDto;
-using TestTaskService.Domain.Repositories.ModelDto;
+using TestTaskService.Application.Dtos.Advertisement.Filters;
+using TestTaskService.Application.Dtos.Common;
 
 namespace TestTaskService.Application.Queries.Advertisements.AdvertisementSearchAndSortAsync;
 

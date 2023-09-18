@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using TestTaskService.Application.Exceptions;
-using TestTaskService.Domain.Repositories;
+using TestTaskService.Application.Interfaces.Repositories;
 
 namespace TestTaskService.Application.Commands.Advertisements.AdvertisementDelete;
 

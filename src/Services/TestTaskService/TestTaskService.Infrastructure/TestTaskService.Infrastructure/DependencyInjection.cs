@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TestTaskService.Domain.Repositories;
+using TestTaskService.Application.Interfaces.Repositories;
 using TestTaskService.Infrastructure.Data.DbContexts;
 using TestTaskService.Infrastructure.Repositories;
 

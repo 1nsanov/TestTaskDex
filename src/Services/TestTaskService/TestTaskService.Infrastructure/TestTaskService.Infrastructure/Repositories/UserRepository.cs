@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TestTaskService.Application.Interfaces.Repositories;
 using TestTaskService.Domain.Entities.Users;
-using TestTaskService.Domain.Repositories;
 using TestTaskService.Infrastructure.Data.DbContexts;
 
 namespace TestTaskService.Infrastructure.Repositories;

@@ -1,6 +1,6 @@
 ﻿using TestTaskService.Domain.Entities.Users;
 
-namespace TestTaskService.Domain.Repositories;
+namespace TestTaskService.Application.Interfaces.Repositories;
 
 /// <summary>
 /// Репозиторий пользователя

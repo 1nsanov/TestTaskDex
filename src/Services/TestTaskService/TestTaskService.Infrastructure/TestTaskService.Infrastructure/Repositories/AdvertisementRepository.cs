@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TestTaskService.Application.Dtos.Advertisement.Filters;
+using TestTaskService.Application.Dtos.Common;
+using TestTaskService.Application.Interfaces.Repositories;
 using TestTaskService.Domain.Entities.Advertisements;
-using TestTaskService.Domain.Filters.ModelDto;
-using TestTaskService.Domain.Repositories;
-using TestTaskService.Domain.Repositories.ModelDto;
 using TestTaskService.Infrastructure.Data.DbContexts;
 using TestTaskService.Infrastructure.Filters;
 

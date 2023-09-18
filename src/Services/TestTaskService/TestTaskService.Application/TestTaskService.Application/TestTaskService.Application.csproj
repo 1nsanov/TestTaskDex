@@ -16,7 +16,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\TestTaskService.Domain\TestTaskService.Domain\TestTaskService.Domain.csproj" />
-      <ProjectReference Include="..\..\TestTaskService.Infrastructure\TestTaskService.Infrastructure\TestTaskService.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Interfaces" />
     </ItemGroup>
 
 </Project>

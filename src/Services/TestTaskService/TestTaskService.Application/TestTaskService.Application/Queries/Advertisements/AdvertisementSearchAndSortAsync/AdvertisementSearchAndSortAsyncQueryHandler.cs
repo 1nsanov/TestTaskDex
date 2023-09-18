@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using TestTaskService.Application.Dtos.Advertisement;
-using TestTaskService.Domain.Repositories;
-using TestTaskService.Domain.Repositories.ModelDto;
+using TestTaskService.Application.Dtos.Common;
+using TestTaskService.Application.Interfaces.Repositories;
 
 namespace TestTaskService.Application.Queries.Advertisements.AdvertisementSearchAndSortAsync;
 

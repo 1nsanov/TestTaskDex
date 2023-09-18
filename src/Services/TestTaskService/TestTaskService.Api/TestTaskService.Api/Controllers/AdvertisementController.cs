@@ -5,9 +5,9 @@ using TestTaskService.Application.Commands.Advertisements.AdvertisementAdd;
 using TestTaskService.Application.Commands.Advertisements.AdvertisementDelete;
 using TestTaskService.Application.Commands.Advertisements.AdvertisementUpdate;
 using TestTaskService.Application.Dtos.Advertisement;
+using TestTaskService.Application.Dtos.Advertisement.Filters;
 using TestTaskService.Application.Queries.Advertisements.AdvertisementGetById;
 using TestTaskService.Application.Queries.Advertisements.AdvertisementSearchAndSortAsync;
-using TestTaskService.Domain.Filters.ModelDto;
 
 namespace TestTaskService.Api.Controllers;
 

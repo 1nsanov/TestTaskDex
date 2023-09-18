@@ -1,4 +1,4 @@
-﻿namespace TestTaskService.Domain.Repositories.ModelDto;
+﻿namespace TestTaskService.Application.Dtos.Common;
 
 public class PagedResult<T>
 {
