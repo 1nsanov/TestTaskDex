@@ -38,8 +38,16 @@ public class AdvertisementConfiguration : IEntityTypeConfiguration<Advertisement
             .IsRequired();
         
         builder
+            .HasIndex(a => a.Rate)
+            .HasName("IX_Advertisement_Rate");
+        
+        builder
             .Property(a => a.ExpireDate)
             .IsRequired();
+        
+        builder
+            .HasIndex(a => a.ExpireDate)
+            .HasName("IX_Advertisement_ExpireDate");
 
         builder
             .Property(a => a.ImageUrl)
